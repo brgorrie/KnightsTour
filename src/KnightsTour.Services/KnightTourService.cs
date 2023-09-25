@@ -12,24 +12,27 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-using KnightsTour.Models;
-using KnightsTour.Services;
-using KnightsTour.Utilities;
 using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using KnightsTour.Utilities;
 
-class Program
+namespace KnightsTour.Services
 {
-    static void Main(string[] args)
+    public class KnightTourService : IKnightTourService
     {
-        int n = int.Parse(args[0]);
-        bool unique = bool.Parse(args[1]);
-        bool useWarnsdorff = bool.Parse(args[2]);
+        private readonly ITourSolver _solver;
+        public KnightTourService(ITourSolver solver)
+        {
+            _solver = solver;
+        }
 
-        IChessBoard board = new ChessBoard(n);
-        ITourSolver solver = useWarnsdorff ? (ITourSolver)new WarnsdorffTourSolver() : new SimpleTourSolver();
-        IKnightTourService service = new KnightTourService(solver);
-
-        int count = service.CountTours(board, unique, useWarnsdorff);
-        Console.WriteLine($"Number of tours: {count}");
+        public int CountTours(IChessBoard board, bool unique, bool useWarnsdorff)
+        {
+            int count = _solver.Solve(board, unique, useWarnsdorff);
+            return count;
+        }
     }
 }
