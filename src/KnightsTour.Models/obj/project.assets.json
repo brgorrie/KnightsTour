@@ -14,11 +14,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\git\\KnightsTourProblem\\src\\KnightsTour.Models\\KnightsTour.Models.csproj",
+      "projectUniqueName": "C:\\git\\KnightsTour\\src\\KnightsTour.Models\\KnightsTour.Models.csproj",
       "projectName": "KnightsTour.Models",
-      "projectPath": "C:\\git\\KnightsTourProblem\\src\\KnightsTour.Models\\KnightsTour.Models.csproj",
+      "projectPath": "C:\\git\\KnightsTour\\src\\KnightsTour.Models\\KnightsTour.Models.csproj",
       "packagesPath": "C:\\Users\\brgor\\.nuget\\packages\\",
-      "outputPath": "C:\\git\\KnightsTourProblem\\src\\KnightsTour.Models\\obj\\",
+      "outputPath": "C:\\git\\KnightsTour\\src\\KnightsTour.Models\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"

@@ -5,23 +5,28 @@ VisualStudioVersion = 17.0.31903.59
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{CB5BEEF4-C707-49B4-8177-C568861464A3}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KnightsTour.Models", "src\KnightsTour.Models\KnightsTour.Models.csproj", "{0E983FDB-B122-4A41-90CC-BD018938BADC}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "KnightsTour.Models", "src\KnightsTour.Models\KnightsTour.Models.csproj", "{0E983FDB-B122-4A41-90CC-BD018938BADC}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KnightsTour.Services", "src\KnightsTour.Services\KnightsTour.Services.csproj", "{AB9DBD1B-12D9-42FC-B224-7758AFAFFFFC}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "KnightsTour.Services", "src\KnightsTour.Services\KnightsTour.Services.csproj", "{AB9DBD1B-12D9-42FC-B224-7758AFAFFFFC}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KnightsTour.Tests", "src\KnightsTour.Tests\KnightsTour.Tests.csproj", "{9F620CD1-1DB0-49DA-B482-94148BC82385}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "KnightsTour.Tests", "src\KnightsTour.Tests\KnightsTour.Tests.csproj", "{9F620CD1-1DB0-49DA-B482-94148BC82385}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KnightsTour.Utilities", "src\KnightsTour.Utilities\KnightsTour.Utilities.csproj", "{A49DB294-CFC5-4073-A496-D4B84B0BF9C9}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "KnightsTour.Utilities", "src\KnightsTour.Utilities\KnightsTour.Utilities.csproj", "{A49DB294-CFC5-4073-A496-D4B84B0BF9C9}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KnightsTour", "src\KnightsTour\KnightsTour.csproj", "{50474ACF-C595-4A36-81C8-5840DC2EC836}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "KnightsTour", "src\KnightsTour\KnightsTour.csproj", "{50474ACF-C595-4A36-81C8-5840DC2EC836}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{6E68CC2F-8DCF-4B8A-9D1A-E17C9E8E3AC5}"
+	ProjectSection(SolutionItems) = preProject
+		.editorconfig = .editorconfig
+		.gitignore = .gitignore
+		LICENSE.md = LICENSE.md
+		README.md = README.md
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
 		Release|Any CPU = Release|Any CPU
-	EndGlobalSection
-	GlobalSection(SolutionProperties) = preSolution
-		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
 		{0E983FDB-B122-4A41-90CC-BD018938BADC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
@@ -45,11 +50,17 @@ Global
 		{50474ACF-C595-4A36-81C8-5840DC2EC836}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{50474ACF-C595-4A36-81C8-5840DC2EC836}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{0E983FDB-B122-4A41-90CC-BD018938BADC} = {CB5BEEF4-C707-49B4-8177-C568861464A3}
 		{AB9DBD1B-12D9-42FC-B224-7758AFAFFFFC} = {CB5BEEF4-C707-49B4-8177-C568861464A3}
 		{9F620CD1-1DB0-49DA-B482-94148BC82385} = {CB5BEEF4-C707-49B4-8177-C568861464A3}
 		{A49DB294-CFC5-4073-A496-D4B84B0BF9C9} = {CB5BEEF4-C707-49B4-8177-C568861464A3}
 		{50474ACF-C595-4A36-81C8-5840DC2EC836} = {CB5BEEF4-C707-49B4-8177-C568861464A3}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {835062EE-9256-40FB-9CC5-E7839E2E5FD0}
 	EndGlobalSection
 EndGlobal

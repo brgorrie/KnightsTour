@@ -1808,6 +1808,55 @@
         "build": {
           "build/netcoreapp3.1/xunit.runner.visualstudio.props": {}
         }
+      },
+      "KnightsTour/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v7.0",
+        "dependencies": {
+          "KnightsTour.Models": "1.0.0",
+          "KnightsTour.Services": "1.0.0",
+          "KnightsTour.Utilities": "1.0.0"
+        },
+        "compile": {
+          "bin/placeholder/KnightsTour.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/KnightsTour.dll": {}
+        }
+      },
+      "KnightsTour.Models/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v7.0",
+        "compile": {
+          "bin/placeholder/KnightsTour.Models.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/KnightsTour.Models.dll": {}
+        }
+      },
+      "KnightsTour.Services/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v7.0",
+        "dependencies": {
+          "KnightsTour.Models": "1.0.0",
+          "KnightsTour.Utilities": "1.0.0"
+        },
+        "compile": {
+          "bin/placeholder/KnightsTour.Services.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/KnightsTour.Services.dll": {}
+        }
+      },
+      "KnightsTour.Utilities/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v7.0",
+        "compile": {
+          "bin/placeholder/KnightsTour.Utilities.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/KnightsTour.Utilities.dll": {}
+        }
       }
     }
   },
@@ -6103,10 +6152,34 @@
         "xunit.runner.visualstudio.2.4.5.nupkg.sha512",
         "xunit.runner.visualstudio.nuspec"
       ]
+    },
+    "KnightsTour/1.0.0": {
+      "type": "project",
+      "path": "../KnightsTour/KnightsTour.csproj",
+      "msbuildProject": "../KnightsTour/KnightsTour.csproj"
+    },
+    "KnightsTour.Models/1.0.0": {
+      "type": "project",
+      "path": "../KnightsTour.Models/KnightsTour.Models.csproj",
+      "msbuildProject": "../KnightsTour.Models/KnightsTour.Models.csproj"
+    },
+    "KnightsTour.Services/1.0.0": {
+      "type": "project",
+      "path": "../KnightsTour.Services/KnightsTour.Services.csproj",
+      "msbuildProject": "../KnightsTour.Services/KnightsTour.Services.csproj"
+    },
+    "KnightsTour.Utilities/1.0.0": {
+      "type": "project",
+      "path": "../KnightsTour.Utilities/KnightsTour.Utilities.csproj",
+      "msbuildProject": "../KnightsTour.Utilities/KnightsTour.Utilities.csproj"
     }
   },
   "projectFileDependencyGroups": {
     "net7.0": [
+      "KnightsTour >= 1.0.0",
+      "KnightsTour.Models >= 1.0.0",
+      "KnightsTour.Services >= 1.0.0",
+      "KnightsTour.Utilities >= 1.0.0",
       "Microsoft.NET.Test.Sdk >= 17.3.2",
       "coverlet.collector >= 3.1.2",
       "xunit >= 2.4.2",
@@ -6145,7 +6218,20 @@
       "frameworks": {
         "net7.0": {
           "targetAlias": "net7.0",
-          "projectReferences": {}
+          "projectReferences": {
+            "C:\\git\\KnightsTour\\src\\KnightsTour.Models\\KnightsTour.Models.csproj": {
+              "projectPath": "C:\\git\\KnightsTour\\src\\KnightsTour.Models\\KnightsTour.Models.csproj"
+            },
+            "C:\\git\\KnightsTour\\src\\KnightsTour.Services\\KnightsTour.Services.csproj": {
+              "projectPath": "C:\\git\\KnightsTour\\src\\KnightsTour.Services\\KnightsTour.Services.csproj"
+            },
+            "C:\\git\\KnightsTour\\src\\KnightsTour.Utilities\\KnightsTour.Utilities.csproj": {
+              "projectPath": "C:\\git\\KnightsTour\\src\\KnightsTour.Utilities\\KnightsTour.Utilities.csproj"
+            },
+            "C:\\git\\KnightsTour\\src\\KnightsTour\\KnightsTour.csproj": {
+              "projectPath": "C:\\git\\KnightsTour\\src\\KnightsTour\\KnightsTour.csproj"
+            }
+          }
         }
       },
       "warningProperties": {

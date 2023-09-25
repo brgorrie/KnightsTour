@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "2LmR6dxB2kW8MfgK9auilCZx/wlP8hEuhGuFWYiFEcyybZq+xznmxVRUIl/FCZni1rzwyw2GXsPpblCn0vykiw==",
+  "dgSpecHash": "CjipoNW9MQXUwseh8Ilp84YKwZ+6F+4tXRf7CUX3qzBuJ4yLtB+f0UfucTIKvF3gpW33pmIgTwWkaZgHxmBXoA==",
   "success": true,
-  "projectFilePath": "C:\\git\\KnightsTourProblem\\src\\KnightsTour.Models\\KnightsTour.Models.csproj",
+  "projectFilePath": "C:\\git\\KnightsTour\\src\\KnightsTour.Models\\KnightsTour.Models.csproj",
   "expectedPackageFiles": [],
   "logs": []
 }
