@@ -245,6 +245,12 @@
       "frameworks": {
         "net7.0": {
           "targetAlias": "net7.0",
+          "dependencies": {
+            "autofac": {
+              "target": "Package",
+              "version": "[7.1.0, )"
+            }
+          },
           "imports": [
             "net461",
             "net462",

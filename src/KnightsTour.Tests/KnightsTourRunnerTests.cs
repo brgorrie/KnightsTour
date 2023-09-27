@@ -22,24 +22,36 @@ namespace KnightsTour.Tests
 {
     public class KnightsTourRunnerTests
     {
-        [Theory]
-        [InlineData(5, true, true, 10)] // Use real values here
-        public void Run_ShouldReturnCorrectCount(int n, bool unique, bool useWarnsdorff, int expectedCount)
+        [Fact]
+        public void Run_ShouldCallCountToursAndWriteToConsole()
         {
             // Arrange
             var mockBoard = new Mock<IChessBoard>();
-            var mockSolver = new Mock<ITourSolver>();
             var mockService = new Mock<IKnightsTourService>();
+            var mockWriter = new Mock<TextWriter>();
 
-            mockService.Setup(service => service.CountTours(It.IsAny<IChessBoard>(), It.IsAny<bool>(), It.IsAny<bool>())).Returns(expectedCount);
+            mockService
+                .Setup(service => service.CountTours(It.IsAny<IChessBoard>(), It.IsAny<bool>(), It.IsAny<bool>()))
+                .Returns(123); // You can put any number here as a dummy return value.
 
-            var runner = new KnightsTourRunner(mockBoard.Object, mockSolver.Object, mockService.Object);
+            var runner = new KnightsTourRunner(mockBoard.Object, mockService.Object);
+            var originalOut = Console.Out; // keep original console to restore later
 
-            // Act
-            var count = runner.Run(n, unique, useWarnsdorff);
+            try
+            {
+                Console.SetOut(mockWriter.Object);
 
-            // Assert
-            Assert.Equal(expectedCount, count);
+                // Act
+                runner.Run(5, true, true); // You can put any valid values here, as they won't impact the mocked methods.
+
+                // Assert
+                mockService.Verify(service => service.CountTours(mockBoard.Object, true, true), Times.Once);
+                mockWriter.Verify(writer => writer.WriteLine(It.Is<string>(s => s.Contains("123"))), Times.Once); // Verify that the console received the expected output.
+            }
+            finally
+            {
+                Console.SetOut(originalOut); // restore original console
+            }
         }
     }
 

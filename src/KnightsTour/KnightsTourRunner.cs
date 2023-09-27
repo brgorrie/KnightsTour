@@ -21,19 +21,18 @@ namespace KnightsTour
     public class KnightsTourRunner
     {
         private readonly IChessBoard _board;
-        private readonly ITourSolver _solver;
         private readonly IKnightsTourService _service;
 
-        public KnightsTourRunner(IChessBoard board, ITourSolver solver, IKnightsTourService service)
+        public KnightsTourRunner(IChessBoard board, IKnightsTourService service)
         {
-            _board = board;
-            _solver = solver;
-            _service = service;
+            _board = board ?? throw new ArgumentNullException(nameof(board));
+            _service = service ?? throw new ArgumentNullException(nameof(service));
         }
 
-        public int Run(int n, bool unique, bool useWarnsdorff)
+        public void Run(int n, bool unique, bool useWarnsdorff)
         {
-            return _service.CountTours(_board, unique, useWarnsdorff);
+            var count = _service.CountTours(_board, unique, useWarnsdorff);
+            Console.WriteLine($"Number of tours: {count}");
         }
     }
 

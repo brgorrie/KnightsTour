@@ -12,6 +12,7 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
+using Autofac;
 using KnightsTour;
 using KnightsTour.Models;
 using KnightsTour.Services;
@@ -21,17 +22,32 @@ public class Program
 {
     public static void Main(string[] args)
     {
+        var containerBuilder = new ContainerBuilder();
+
         var n = int.Parse(args[0]);
         var unique = bool.Parse(args[1]);
         var useWarnsdorff = bool.Parse(args[2]);
 
-        IChessBoard board = new ChessBoard(n);
-        var solver = useWarnsdorff ? (ITourSolver)new WarnsdorffTourSolver() : new SimpleTourSolver();
-        IKnightsTourService service = new KnightsTourService(solver);
+        containerBuilder.RegisterType<ChessBoard>()
+            .WithParameter("n", n)
+            .As<IChessBoard>();
 
-        var runner = new KnightsTourRunner(board, solver, service);
+        containerBuilder.RegisterType<KnightsTourService>().As<IKnightsTourService>();
 
-        var count = runner.Run(n, unique, useWarnsdorff);
-        Console.WriteLine($"Number of tours: {count}");
+        if (useWarnsdorff)
+            containerBuilder.RegisterType<WarnsdorffTourSolver>().As<ITourSolver>();
+        else
+            containerBuilder.RegisterType<SimpleTourSolver>().As<ITourSolver>();
+
+        containerBuilder.RegisterType<KnightsTourRunner>();
+
+        var container = containerBuilder.Build();
+
+        using (var scope = container.BeginLifetimeScope())
+        {
+            var runner = scope.Resolve<KnightsTourRunner>();
+            runner.Run(n, unique, useWarnsdorff);
+        }
     }
+
 }

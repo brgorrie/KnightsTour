@@ -1,9 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "o7dDD80Tb5aDJCY3K8PyMkH0q2njErwS760OJYQvQqIXJ2WHbhgE7HZEAwqSNd3PqrBoyKvUZQ2l+6zMsBBryw==",
+  "dgSpecHash": "qkdyxIilWBiM3Q6ZLoDxBD84gSdLEO2uLnDbkflqUbrfO7Rvr+6m5iWfMtk77DELL1VbaJWIXRlEJGh7H/OtbA==",
   "success": true,
   "projectFilePath": "C:\\git\\KnightsTour\\src\\KnightsTour.Tests\\KnightsTour.Tests.csproj",
   "expectedPackageFiles": [
+    "C:\\Users\\brgor\\.nuget\\packages\\autofac\\7.1.0\\autofac.7.1.0.nupkg.sha512",
     "C:\\Users\\brgor\\.nuget\\packages\\castle.core\\5.1.1\\castle.core.5.1.1.nupkg.sha512",
     "C:\\Users\\brgor\\.nuget\\packages\\coverlet.collector\\3.1.2\\coverlet.collector.3.1.2.nupkg.sha512",
     "C:\\Users\\brgor\\.nuget\\packages\\microsoft.codecoverage\\17.3.2\\microsoft.codecoverage.17.3.2.nupkg.sha512",
@@ -40,7 +41,7 @@
     "C:\\Users\\brgor\\.nuget\\packages\\system.collections.concurrent\\4.3.0\\system.collections.concurrent.4.3.0.nupkg.sha512",
     "C:\\Users\\brgor\\.nuget\\packages\\system.console\\4.3.0\\system.console.4.3.0.nupkg.sha512",
     "C:\\Users\\brgor\\.nuget\\packages\\system.diagnostics.debug\\4.3.0\\system.diagnostics.debug.4.3.0.nupkg.sha512",
-    "C:\\Users\\brgor\\.nuget\\packages\\system.diagnostics.diagnosticsource\\4.3.0\\system.diagnostics.diagnosticsource.4.3.0.nupkg.sha512",
+    "C:\\Users\\brgor\\.nuget\\packages\\system.diagnostics.diagnosticsource\\4.7.1\\system.diagnostics.diagnosticsource.4.7.1.nupkg.sha512",
     "C:\\Users\\brgor\\.nuget\\packages\\system.diagnostics.eventlog\\6.0.0\\system.diagnostics.eventlog.6.0.0.nupkg.sha512",
     "C:\\Users\\brgor\\.nuget\\packages\\system.diagnostics.tools\\4.3.0\\system.diagnostics.tools.4.3.0.nupkg.sha512",
     "C:\\Users\\brgor\\.nuget\\packages\\system.diagnostics.tracing\\4.3.0\\system.diagnostics.tracing.4.3.0.nupkg.sha512",
