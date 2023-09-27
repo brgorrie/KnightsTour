@@ -12,6 +12,9 @@ EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "KnightsTour.Tests", "src\KnightsTour.Tests\KnightsTour.Tests.csproj", "{9F620CD1-1DB0-49DA-B482-94148BC82385}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "KnightsTour.Utilities", "src\KnightsTour.Utilities\KnightsTour.Utilities.csproj", "{A49DB294-CFC5-4073-A496-D4B84B0BF9C9}"
+	ProjectSection(ProjectDependencies) = postProject
+		{0E983FDB-B122-4A41-90CC-BD018938BADC} = {0E983FDB-B122-4A41-90CC-BD018938BADC}
+	EndProjectSection
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "KnightsTour", "src\KnightsTour\KnightsTour.csproj", "{50474ACF-C595-4A36-81C8-5840DC2EC836}"
 EndProject

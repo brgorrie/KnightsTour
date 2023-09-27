@@ -254,7 +254,11 @@
         "frameworks": {
           "net7.0": {
             "targetAlias": "net7.0",
-            "projectReferences": {}
+            "projectReferences": {
+              "C:\\git\\KnightsTour\\src\\KnightsTour.Models\\KnightsTour.Models.csproj": {
+                "projectPath": "C:\\git\\KnightsTour\\src\\KnightsTour.Models\\KnightsTour.Models.csproj"
+              }
+            }
           }
         },
         "warningProperties": {

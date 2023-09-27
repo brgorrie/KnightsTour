@@ -15,7 +15,6 @@
 using KnightsTour.Models;
 using KnightsTour.Services;
 using KnightsTour.Utilities;
-using System;
 
 class Program
 {
