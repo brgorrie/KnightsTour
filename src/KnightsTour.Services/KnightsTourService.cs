@@ -17,10 +17,10 @@ using KnightsTour.Utilities;
 
 namespace KnightsTour.Services
 {
-    public class KnightTourService : IKnightTourService
+    public class KnightsTourService : IKnightsTourService
     {
         private readonly ITourSolver _solver;
-        public KnightTourService(ITourSolver solver)
+        public KnightsTourService(ITourSolver solver)
         {
             _solver = solver;
         }

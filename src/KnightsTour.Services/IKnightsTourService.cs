@@ -16,7 +16,7 @@ using KnightsTour.Models;
 
 namespace KnightsTour.Services
 {
-    public interface IKnightTourService
+    public interface IKnightsTourService
     {
         int CountTours(IChessBoard board, bool unique, bool useWarnsdorff);
     }

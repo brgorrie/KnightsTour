@@ -26,7 +26,7 @@ class Program
 
         IChessBoard board = new ChessBoard(n);
         var solver = useWarnsdorff ? (ITourSolver)new WarnsdorffTourSolver() : new SimpleTourSolver();
-        IKnightTourService service = new KnightTourService(solver);
+        IKnightsTourService service = new KnightsTourService(solver);
 
         var count = service.CountTours(board, unique, useWarnsdorff);
         Console.WriteLine($"Number of tours: {count}");
