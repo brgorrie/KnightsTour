@@ -21,8 +21,30 @@ dotnet restore
 dotnet build
 dotnet test 
 ```
-Then to run it you can exexcute the program directly
+Then to run it you can exexcute the program directly without parameters to see what parameters to use.
 
 ```
-TBD
+PS C:\git\KnightsTour> .\src\KnightsTour\bin\Debug\net7.0\KnightsTour.exe
+KnightsTour 1.0.0
+Copyright (C) 2023 KnightsTour
+
+ERROR(S):
+  Required option 'n, boardSize' is missing.
+  Required option 'u, unique' is missing.
+  Required option 'w, useWarnsdorff' is missing.
+
+  -n, --boardSize        Required. Size of the chess board.
+
+  -u, --unique           Required. Consider unique solutions only.
+
+  -w, --useWarnsdorff    Required. Use Warnsdorff's algorithm.
+
+  --help                 Display this help screen.
+
+  --version              Display version information.
+
+PS C:\git\KnightsTour>
 ```
+
+Or you can specify parameters to see the output
+
