@@ -1,10 +1,11 @@
 {
   "version": 2,
-  "dgSpecHash": "hZz1HSLLhVTKI7QQ6k3aDM6Tre9V2fciVCiouPlxdpEoPYZHc/KAXmAiIUCpWSGx878RFWlcy2GJd8dtVTsR+Q==",
+  "dgSpecHash": "d7Iw/svsm6FOnP2dJEIynLNnfWbYnDdzE7oycdNzMo/Y4Mu7OJYlELVdi+7zfrDT+SYUlzh8a+T4N5soKScSZA==",
   "success": true,
   "projectFilePath": "C:\\git\\KnightsTour\\src\\KnightsTour\\KnightsTour.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\brgor\\.nuget\\packages\\autofac\\7.1.0\\autofac.7.1.0.nupkg.sha512",
+    "C:\\Users\\brgor\\.nuget\\packages\\commandlineparser\\2.9.1\\commandlineparser.2.9.1.nupkg.sha512",
     "C:\\Users\\brgor\\.nuget\\packages\\system.diagnostics.diagnosticsource\\4.7.1\\system.diagnostics.diagnosticsource.4.7.1.nupkg.sha512"
   ],
   "logs": []

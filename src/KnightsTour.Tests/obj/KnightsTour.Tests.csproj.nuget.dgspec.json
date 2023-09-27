@@ -348,6 +348,10 @@
             "autofac": {
               "target": "Package",
               "version": "[7.1.0, )"
+            },
+            "commandlineparser": {
+              "target": "Package",
+              "version": "[2.9.1, )"
             }
           },
           "imports": [

@@ -1,11 +1,12 @@
 {
   "version": 2,
-  "dgSpecHash": "qkdyxIilWBiM3Q6ZLoDxBD84gSdLEO2uLnDbkflqUbrfO7Rvr+6m5iWfMtk77DELL1VbaJWIXRlEJGh7H/OtbA==",
+  "dgSpecHash": "54kM08Ju4pOfVAX9jMihvunoe6G7H7fIMkEgcWIHA2k7zenAG7JLjiynZ5szNammVv9R1tODeQFPap/t6p8GaQ==",
   "success": true,
   "projectFilePath": "C:\\git\\KnightsTour\\src\\KnightsTour.Tests\\KnightsTour.Tests.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\brgor\\.nuget\\packages\\autofac\\7.1.0\\autofac.7.1.0.nupkg.sha512",
     "C:\\Users\\brgor\\.nuget\\packages\\castle.core\\5.1.1\\castle.core.5.1.1.nupkg.sha512",
+    "C:\\Users\\brgor\\.nuget\\packages\\commandlineparser\\2.9.1\\commandlineparser.2.9.1.nupkg.sha512",
     "C:\\Users\\brgor\\.nuget\\packages\\coverlet.collector\\3.1.2\\coverlet.collector.3.1.2.nupkg.sha512",
     "C:\\Users\\brgor\\.nuget\\packages\\microsoft.codecoverage\\17.3.2\\microsoft.codecoverage.17.3.2.nupkg.sha512",
     "C:\\Users\\brgor\\.nuget\\packages\\microsoft.csharp\\4.0.1\\microsoft.csharp.4.0.1.nupkg.sha512",

@@ -13,6 +13,7 @@
 // limitations under the License.
 
 using Autofac;
+using CommandLine;
 using KnightsTour;
 using KnightsTour.Models;
 using KnightsTour.Services;
@@ -22,32 +23,31 @@ public class Program
 {
     public static void Main(string[] args)
     {
-        var containerBuilder = new ContainerBuilder();
-
-        var n = int.Parse(args[0]);
-        var unique = bool.Parse(args[1]);
-        var useWarnsdorff = bool.Parse(args[2]);
-
-        containerBuilder.RegisterType<ChessBoard>()
-            .WithParameter("n", n)
-            .As<IChessBoard>();
-
-        containerBuilder.RegisterType<KnightsTourService>().As<IKnightsTourService>();
-
-        if (useWarnsdorff)
-            containerBuilder.RegisterType<WarnsdorffTourSolver>().As<ITourSolver>();
-        else
-            containerBuilder.RegisterType<SimpleTourSolver>().As<ITourSolver>();
-
-        containerBuilder.RegisterType<KnightsTourRunner>();
-
-        var container = containerBuilder.Build();
-
-        using (var scope = container.BeginLifetimeScope())
+        var parserResult = Parser.Default.ParseArguments<Options>(args);
+        parserResult.WithParsed(options =>
         {
-            var runner = scope.Resolve<KnightsTourRunner>();
-            runner.Run(n, unique, useWarnsdorff);
-        }
+            var containerBuilder = new ContainerBuilder();
+            containerBuilder.RegisterType<ChessBoard>()
+                .WithParameter("n", options.BoardSize)
+                .As<IChessBoard>();
+
+            containerBuilder.RegisterType<KnightsTourService>().As<IKnightsTourService>();
+
+            if (options.UseWarnsdorff)
+                containerBuilder.RegisterType<WarnsdorffTourSolver>().As<ITourSolver>();
+            else
+                containerBuilder.RegisterType<SimpleTourSolver>().As<ITourSolver>();
+
+            containerBuilder.RegisterType<KnightsTourRunner>();
+
+            var container = containerBuilder.Build();
+
+            using (var scope = container.BeginLifetimeScope())
+            {
+                var runner = scope.Resolve<KnightsTourRunner>();
+                runner.Run(options.BoardSize, options.Unique, options.UseWarnsdorff);
+            }
+        });
     }
 
 }
