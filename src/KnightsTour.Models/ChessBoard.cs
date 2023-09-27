@@ -17,12 +17,19 @@ namespace KnightsTour.Models
     public class ChessBoard : IChessBoard
     {
         public int N { get; }
-        public int[,] Board { get; }
+
+        private int[,] _board;
 
         public ChessBoard(int n)
         {
             N = n;
-            Board = new int[n, n];
+            _board = new int[n, n];
+        }
+
+        public int this[int row, int col]
+        {
+            get => _board[row, col];
+            set => _board[row, col] = value;
         }
     }
 

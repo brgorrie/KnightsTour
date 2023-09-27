@@ -18,12 +18,63 @@ namespace KnightsTour.Utilities
 {
     public class SimpleTourSolver : ITourSolver
     {
-        // Here you would implement your simple recursive solution.
+        private static readonly int[] RowMoves = { 2, 1, -1, -2, -2, -1, 1, 2 };
+        private static readonly int[] ColMoves = { 1, 2, 2, 1, -1, -2, -2, -1 };
 
         public int Solve(IChessBoard board, bool unique, bool useWarnsdorff)
         {
-            // Call the simple recursive solution and return the count
-            throw new NotImplementedException();
+            if (useWarnsdorff)
+            {
+                // This solver doesn't support Warnsdorff’s algorithm
+                throw new NotSupportedException("This solver doesn't support Warnsdorff’s algorithm.");
+            }
+
+            var count = 0;
+            for (var row = 0; row < board.N; row++)
+            {
+                for (var col = 0; col < board.N; col++)
+                {
+                    // Mark the starting point
+                    board[row, col] = 1;
+
+                    // Start the tour from this point
+                    count += Solve(board, row, col, 1);
+
+                    // Clear the starting point
+                    board[row, col] = 0;
+                }
+            }
+
+            // If unique solutions are required, consider dividing by 8 to account for rotations and reflections
+            return unique ? count / 8 : count;
+        }
+
+        private int Solve(IChessBoard board, int row, int col, int numMoves)
+        {
+            if (numMoves == board.N * board.N)
+            {
+                return 1;
+            }
+
+            var count = 0;
+            for (var i = 0; i < 8; i++)
+            {
+                var newRow = row + RowMoves[i];
+                var newCol = col + ColMoves[i];
+
+                if (IsValidMove(board, newRow, newCol))
+                {
+                    board[newRow, newCol] = numMoves + 1;
+                    count += Solve(board, newRow, newCol, numMoves + 1);
+                    board[newRow, newCol] = 0; // backtrack
+                }
+            }
+            return count;
+        }
+
+        private bool IsValidMove(IChessBoard board, int row, int col)
+        {
+            return row >= 0 && row < board.N && col >= 0 && col < board.N && board[row, col] == 0;
         }
     }
 

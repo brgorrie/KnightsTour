@@ -20,15 +20,15 @@ class Program
 {
     static void Main(string[] args)
     {
-        int n = int.Parse(args[0]);
-        bool unique = bool.Parse(args[1]);
-        bool useWarnsdorff = bool.Parse(args[2]);
+        var n = int.Parse(args[0]);
+        var unique = bool.Parse(args[1]);
+        var useWarnsdorff = bool.Parse(args[2]);
 
         IChessBoard board = new ChessBoard(n);
-        ITourSolver solver = useWarnsdorff ? (ITourSolver)new WarnsdorffTourSolver() : new SimpleTourSolver();
+        var solver = useWarnsdorff ? (ITourSolver)new WarnsdorffTourSolver() : new SimpleTourSolver();
         IKnightTourService service = new KnightTourService(solver);
 
-        int count = service.CountTours(board, unique, useWarnsdorff);
+        var count = service.CountTours(board, unique, useWarnsdorff);
         Console.WriteLine($"Number of tours: {count}");
     }
 }

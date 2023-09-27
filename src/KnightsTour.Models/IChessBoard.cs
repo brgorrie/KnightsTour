@@ -17,7 +17,8 @@ namespace KnightsTour.Models
     public interface IChessBoard
     {
         int N { get; }
-        int[,] Board { get; }
+        int this[int row, int col] { get; set; } // Indexer to access board cells
+
     }
 
 }
