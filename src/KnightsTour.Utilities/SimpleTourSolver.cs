@@ -21,13 +21,8 @@ namespace KnightsTour.Utilities
         private static readonly int[] RowMoves = { 2, 1, -1, -2, -2, -1, 1, 2 };
         private static readonly int[] ColMoves = { 1, 2, 2, 1, -1, -2, -2, -1 };
 
-        public int Solve(IChessBoard board, bool unique, bool useWarnsdorff)
+        public int Solve(IChessBoard board, bool unique)
         {
-            if (useWarnsdorff)
-            {
-                // This solver doesn't support Warnsdorff’s algorithm
-                throw new NotSupportedException("This solver doesn't support Warnsdorff’s algorithm.");
-            }
 
             var count = 0;
             for (var row = 0; row < board.N; row++)

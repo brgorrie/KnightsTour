@@ -25,9 +25,9 @@ namespace KnightsTour.Services
             _solver = solver;
         }
 
-        public int CountTours(IChessBoard board, bool unique, bool useWarnsdorff)
+        public int CountTours(IChessBoard board, bool unique)
         {
-            var count = _solver.Solve(board, unique, useWarnsdorff);
+            var count = _solver.Solve(board, unique);
             return count;
         }
     }

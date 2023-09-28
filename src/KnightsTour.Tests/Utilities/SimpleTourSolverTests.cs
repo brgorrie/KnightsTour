@@ -28,10 +28,9 @@ namespace KnightsTour.Tests.Utilities
             var solver = new SimpleTourSolver();
             var board = new ChessBoard(3);
             var unique = false;
-            var useWarnsdorff = false;
 
             // Act
-            var count = solver.Solve(board, unique, useWarnsdorff);
+            var count = solver.Solve(board, unique);
 
             // Assert
             // There are no possible complete tours on a 3x3 board.
@@ -45,49 +44,26 @@ namespace KnightsTour.Tests.Utilities
             var solver = new SimpleTourSolver();
             var board = new ChessBoard(3);
             var unique = false;
-            var useWarnsdorff = true;
 
             // Act & Assert
-            Assert.Throws<NotSupportedException>(() => solver.Solve(board, unique, useWarnsdorff));
+            Assert.Throws<NotSupportedException>(() => solver.Solve(board, unique));
         }
 
-        [Fact]
-        public void Solve_ShouldReturnCorrectCountFor5x5Board_UniqueFalse()
+        [Theory]
+        [InlineData(5, false, 1728)]
+        [InlineData(5, true, 216)]
+        [InlineData(8, false, 1728)]
+        [InlineData(8, true, 216)]
+        public void Solve_ShouldReturnCorrectCountFor5x5Board_UniqueFalse(int n, bool unique, int expectedCount)
         {
             // Arrange
             var solver = new SimpleTourSolver();
-            var board = new ChessBoard(5);
-            var unique = false;
-            var useWarnsdorff = false;
+            var board = new ChessBoard(n);
 
             // Act
-            var count = solver.Solve(board, unique, useWarnsdorff);
+            var count = solver.Solve(board, unique);
 
             // Assert
-            // Depending on your implementation details and the problem constraints,
-            // this count might vary.
-            // Replace the expected count with the correct value according to your implementation.
-            var expectedCount = 1728; // Replace with the actual count
-            Assert.Equal(expectedCount, count);
-        }
-
-        [Fact]
-        public void Solve_ShouldReturnCorrectCountFor5x5Board_UniqueTrue()
-        {
-            // Arrange
-            var solver = new SimpleTourSolver();
-            var board = new ChessBoard(5);
-            var unique = true;
-            var useWarnsdorff = false;
-
-            // Act
-            var count = solver.Solve(board, unique, useWarnsdorff);
-
-            // Assert
-            // Depending on your implementation details and the problem constraints,
-            // this count might vary.
-            // Replace the expected count with the correct value according to your implementation.
-            var expectedCount = 216; // Replace with the actual count
             Assert.Equal(expectedCount, count);
         }
 

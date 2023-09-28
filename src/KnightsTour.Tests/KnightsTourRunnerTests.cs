@@ -31,7 +31,7 @@ namespace KnightsTour.Tests
             var mockOutputService = new Mock<IOutputService>();
 
             mockService
-                .Setup(service => service.CountTours(It.IsAny<IChessBoard>(), It.IsAny<bool>(), It.IsAny<bool>()))
+                .Setup(service => service.CountTours(It.IsAny<IChessBoard>(), It.IsAny<bool>()))
                 .Returns(123); // You can put any number here as a dummy return value.
 
             var runner = new KnightsTourRunner(mockBoard.Object, mockService.Object, mockOutputService.Object);
@@ -41,10 +41,10 @@ namespace KnightsTour.Tests
             {
 
                 // Act
-                runner.Run(5, true, true); // You can put any valid values here, as they won't impact the mocked methods.
+                runner.Run(5, true); // You can put any valid values here, as they won't impact the mocked methods.
 
                 // Assert
-                mockService.Verify(service => service.CountTours(mockBoard.Object, true, true), Times.Once);
+                mockService.Verify(service => service.CountTours(mockBoard.Object, true), Times.Once);
                 mockOutputService.Verify(writer => writer.Write(It.Is<string>(s => s.Contains("123"))), Times.Once); // Verify that the console received the expected output.
             }
             finally

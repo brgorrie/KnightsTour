@@ -18,7 +18,7 @@ namespace KnightsTour.Utilities
 {
     public interface ITourSolver
     {
-        int Solve(IChessBoard board, bool unique, bool useWarnsdorff);
+        int Solve(IChessBoard board, bool unique);
     }
 
 }

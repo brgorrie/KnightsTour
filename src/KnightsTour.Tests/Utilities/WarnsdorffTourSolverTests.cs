@@ -30,7 +30,7 @@ namespace KnightsTour.Tests.Utilities
             var solver = new WarnsdorffTourSolver();
 
             // Act & Assert
-            Assert.Throws<NotSupportedException>(() => solver.Solve(mockBoard.Object, true, false));
+            Assert.Throws<NotSupportedException>(() => solver.Solve(mockBoard.Object, true));
         }
 
         [Fact]
@@ -42,7 +42,7 @@ namespace KnightsTour.Tests.Utilities
             var solver = new WarnsdorffTourSolver();
 
             // Act
-            var count = solver.Solve(mockBoard.Object, false, true);
+            var count = solver.Solve(mockBoard.Object, false);
 
             // Assert
             Assert.Equal(1, count); // 1x1 board has only one possible tour

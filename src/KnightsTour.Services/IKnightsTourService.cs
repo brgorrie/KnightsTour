@@ -18,7 +18,7 @@ namespace KnightsTour.Services
 {
     public interface IKnightsTourService
     {
-        int CountTours(IChessBoard board, bool unique, bool useWarnsdorff);
+        int CountTours(IChessBoard board, bool unique);
     }
 
 }

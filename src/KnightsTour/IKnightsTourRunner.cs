@@ -16,5 +16,5 @@ namespace KnightsTour;
 
 public interface IKnightsTourRunner
 {
-    int Run(int n, bool shouldFindUniqueTours, bool shouldUseWarnsdorffRule);
+    int Run(int n, bool shouldFindUniqueTours);
 }

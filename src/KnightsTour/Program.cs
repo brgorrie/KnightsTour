@@ -52,7 +52,7 @@ public class Program
         using (var scope = container.BeginLifetimeScope())
         {
             var runner = scope.Resolve<IKnightsTourRunner>();
-            runner.Run(options.BoardSize, options.Unique, options.UseWarnsdorff);
+            runner.Run(options.BoardSize, options.Unique);
         }
     }
 

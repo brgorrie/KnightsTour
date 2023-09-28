@@ -31,9 +31,9 @@ namespace KnightsTour
             _outputService = outputService ?? throw new ArgumentNullException(nameof(outputService));
         }
 
-        public int Run(int n, bool shouldFindUniqueTours, bool shouldUseWarnsdorffRule)
+        public int Run(int n, bool shouldFindUniqueTours)
         {
-            var count = _service.CountTours(_board, shouldFindUniqueTours, shouldUseWarnsdorffRule);
+            var count = _service.CountTours(_board, shouldFindUniqueTours);
             _outputService.Write($"Number of tours: {count}");
             return count;
         }
