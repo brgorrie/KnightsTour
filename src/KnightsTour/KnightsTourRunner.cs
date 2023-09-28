@@ -18,21 +18,24 @@ using KnightsTour.Utilities;
 
 namespace KnightsTour
 {
-    public class KnightsTourRunner
+    public class KnightsTourRunner : IKnightsTourRunner
     {
         private readonly IChessBoard _board;
         private readonly IKnightsTourService _service;
+        private readonly IOutputService _outputService;
 
-        public KnightsTourRunner(IChessBoard board, IKnightsTourService service)
+        public KnightsTourRunner(IChessBoard board, IKnightsTourService service, IOutputService outputService)
         {
             _board = board ?? throw new ArgumentNullException(nameof(board));
             _service = service ?? throw new ArgumentNullException(nameof(service));
+            _outputService = outputService ?? throw new ArgumentNullException(nameof(outputService));
         }
 
-        public void Run(int n, bool unique, bool useWarnsdorff)
+        public int Run(int n, bool shouldFindUniqueTours, bool shouldUseWarnsdorffRule)
         {
-            var count = _service.CountTours(_board, unique, useWarnsdorff);
-            Console.WriteLine($"Number of tours: {count}");
+            var count = _service.CountTours(_board, shouldFindUniqueTours, shouldUseWarnsdorffRule);
+            _outputService.Write($"Number of tours: {count}");
+            return count;
         }
     }
 

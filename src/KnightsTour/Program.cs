@@ -26,28 +26,34 @@ public class Program
         var parserResult = Parser.Default.ParseArguments<Options>(args);
         parserResult.WithParsed(options =>
         {
-            var containerBuilder = new ContainerBuilder();
-            containerBuilder.RegisterType<ChessBoard>()
-                .WithParameter("n", options.BoardSize)
-                .As<IChessBoard>();
-
-            containerBuilder.RegisterType<KnightsTourService>().As<IKnightsTourService>();
-
-            if (options.UseWarnsdorff)
-                containerBuilder.RegisterType<WarnsdorffTourSolver>().As<ITourSolver>();
-            else
-                containerBuilder.RegisterType<SimpleTourSolver>().As<ITourSolver>();
-
-            containerBuilder.RegisterType<KnightsTourRunner>();
-
-            var container = containerBuilder.Build();
-
-            using (var scope = container.BeginLifetimeScope())
-            {
-                var runner = scope.Resolve<KnightsTourRunner>();
-                runner.Run(options.BoardSize, options.Unique, options.UseWarnsdorff);
-            }
+            RunWithOptions(options);
         });
+    }
+
+    public static void RunWithOptions(Options options)
+    {
+        var containerBuilder = new ContainerBuilder();
+        containerBuilder.RegisterType<ChessBoard>()
+            .WithParameter("n", options.BoardSize)
+            .As<IChessBoard>();
+
+        containerBuilder.RegisterType<KnightsTourService>().As<IKnightsTourService>();
+        containerBuilder.RegisterType<ConsoleOutputService>().As<IOutputService>();
+
+        if (options.UseWarnsdorff)
+            containerBuilder.RegisterType<WarnsdorffTourSolver>().As<ITourSolver>();
+        else
+            containerBuilder.RegisterType<SimpleTourSolver>().As<ITourSolver>();
+
+        containerBuilder.RegisterType<KnightsTourRunner>().As<IKnightsTourRunner>();
+
+        var container = containerBuilder.Build();
+
+        using (var scope = container.BeginLifetimeScope())
+        {
+            var runner = scope.Resolve<IKnightsTourRunner>();
+            runner.Run(options.BoardSize, options.Unique, options.UseWarnsdorff);
+        }
     }
 
 }

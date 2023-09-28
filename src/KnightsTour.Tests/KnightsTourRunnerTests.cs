@@ -28,13 +28,14 @@ namespace KnightsTour.Tests
             // Arrange
             var mockBoard = new Mock<IChessBoard>();
             var mockService = new Mock<IKnightsTourService>();
+            var mockOutputService = new Mock<IOutputService>();
             var mockWriter = new Mock<TextWriter>();
 
             mockService
                 .Setup(service => service.CountTours(It.IsAny<IChessBoard>(), It.IsAny<bool>(), It.IsAny<bool>()))
                 .Returns(123); // You can put any number here as a dummy return value.
 
-            var runner = new KnightsTourRunner(mockBoard.Object, mockService.Object);
+            var runner = new KnightsTourRunner(mockBoard.Object, mockService.Object, mockOutputService.Object);
             var originalOut = Console.Out; // keep original console to restore later
 
             try
