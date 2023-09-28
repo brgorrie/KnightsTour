@@ -29,7 +29,6 @@ namespace KnightsTour.Tests
             var mockBoard = new Mock<IChessBoard>();
             var mockService = new Mock<IKnightsTourService>();
             var mockOutputService = new Mock<IOutputService>();
-            var mockWriter = new Mock<TextWriter>();
 
             mockService
                 .Setup(service => service.CountTours(It.IsAny<IChessBoard>(), It.IsAny<bool>(), It.IsAny<bool>()))
@@ -40,14 +39,13 @@ namespace KnightsTour.Tests
 
             try
             {
-                Console.SetOut(mockWriter.Object);
 
                 // Act
                 runner.Run(5, true, true); // You can put any valid values here, as they won't impact the mocked methods.
 
                 // Assert
                 mockService.Verify(service => service.CountTours(mockBoard.Object, true, true), Times.Once);
-                mockWriter.Verify(writer => writer.WriteLine(It.Is<string>(s => s.Contains("123"))), Times.Once); // Verify that the console received the expected output.
+                mockOutputService.Verify(writer => writer.Write(It.Is<string>(s => s.Contains("123"))), Times.Once); // Verify that the console received the expected output.
             }
             finally
             {

@@ -70,6 +70,27 @@ namespace KnightsTour.Tests.Utilities
             var expectedCount = 1728; // Replace with the actual count
             Assert.Equal(expectedCount, count);
         }
+
+        [Fact]
+        public void Solve_ShouldReturnCorrectCountFor5x5Board_UniqueTrue()
+        {
+            // Arrange
+            var solver = new SimpleTourSolver();
+            var board = new ChessBoard(5);
+            var unique = true;
+            var useWarnsdorff = false;
+
+            // Act
+            var count = solver.Solve(board, unique, useWarnsdorff);
+
+            // Assert
+            // Depending on your implementation details and the problem constraints,
+            // this count might vary.
+            // Replace the expected count with the correct value according to your implementation.
+            var expectedCount = 216; // Replace with the actual count
+            Assert.Equal(expectedCount, count);
+        }
+
     }
 
 }
