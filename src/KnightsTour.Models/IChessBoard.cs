@@ -14,10 +14,24 @@
 
 namespace KnightsTour.Models
 {
+    /// <summary>
+    /// Represents a chessboard for the Knight's Tour problem. It provides the necessary properties and indexer
+    /// to interact with the chessboard during the problem-solving process.
+    /// </summary>
     public interface IChessBoard
     {
+        /// <summary>
+        /// Gets the size of the chessboard, i.e., the number of cells in each row or column.
+        /// </summary>
         int N { get; }
-        int this[int row, int col] { get; set; } // Indexer to access board cells
+
+        /// <summary>
+        /// Gets or sets the value in the chessboard cell at the specified row and column.
+        /// </summary>
+        /// <param name="row">The row of the cell to access.</param>
+        /// <param name="col">The column of the cell to access.</param>
+        /// <returns>The value in the chessboard cell at the specified row and column.</returns>
+        int this[int row, int col] { get; set; }
 
     }
 

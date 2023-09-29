@@ -12,26 +12,43 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using CommandLine.Text;
 using CommandLine;
 
 namespace KnightsTour
 {
+    /// <summary>
+    /// Represents the configurable options for a Knight's Tour program.
+    /// This class holds the user-defined settings that influence the execution of the Knight's Tour algorithm.
+    /// </summary>
     public class Options
     {
+        /// <summary>
+        /// Gets or sets the size of the chess board. This is a required parameter.
+        /// </summary>
+        /// <value>
+        /// The size of the chess board. For a standard chess board, this would be 8.
+        /// </value>
         [Option('n', "boardSize", Required = true, HelpText = "Size of the chess board.")]
         public int BoardSize { get; set; }
 
+        /// <summary>
+        /// Gets or sets a value indicating whether to consider unique solutions only. This is a required parameter.
+        /// </summary>
+        /// <value>
+        /// True if only unique solutions should be considered, false otherwise.
+        /// </value>
         [Option('u', "unique", Required = true, HelpText = "Consider unique solutions only.")]
         public bool Unique { get; set; }
 
+        /// <summary>
+        /// Gets or sets a value indicating whether to use Warnsdorff’s algorithm. This is a required parameter.
+        /// </summary>
+        /// <value>
+        /// True if Warnsdorff’s algorithm should be used, false otherwise.
+        /// </value>
         [Option('w', "useWarnsdorff", Required = true, HelpText = "Use Warnsdorff’s algorithm.")]
         public bool UseWarnsdorff { get; set; }
+
     }
 
 }

@@ -14,23 +14,59 @@
 
 namespace KnightsTour.Models
 {
+    /// <summary>
+    /// Represents a chessboard for the Knight's Tour problem, providing a concrete implementation of <see cref="IChessBoard"/>.
+    /// This class encapsulates the state of the chessboard and allows interaction with individual cells on the board.
+    /// </summary>
     public class ChessBoard : IChessBoard
     {
+        /// <summary>
+        /// Gets the size of the chessboard, i.e., the number of cells in each row or column.
+        /// </summary>
         public int N { get; }
 
+        /// <summary>
+        /// Represents the internal two-dimensional array that holds the state of each cell in the chessboard.
+        /// </summary>
         private int[,] _board;
 
+        /// <summary>
+        /// Initializes a new instance of the <see cref="ChessBoard"/> class with a specified size.
+        /// </summary>
+        /// <param name="n">The size of the chessboard, representing the number of cells in each row or column.</param>
         public ChessBoard(int n)
         {
+            if (n <= 0)
+                throw new ArgumentOutOfRangeException(nameof(n), "Size of the chessboard must be a positive integer.");
+
             N = n;
             _board = new int[n, n];
         }
 
+        /// <summary>
+        /// Gets or sets the value in the chessboard cell at the specified row and column.
+        /// </summary>
+        /// <param name="row">The row of the cell to access.</param>
+        /// <param name="col">The column of the cell to access.</param>
+        /// <returns>The value in the chessboard cell at the specified row and column.</returns>
         public int this[int row, int col]
         {
-            get => _board[row, col];
-            set => _board[row, col] = value;
+            get
+            {
+                if (row < 0 || row >= N || col < 0 || col >= N)
+                    throw new IndexOutOfRangeException("Row and column must be within the bounds of the chessboard.");
+
+                return _board[row, col];
+            }
+            set
+            {
+                if (row < 0 || row >= N || col < 0 || col >= N)
+                    throw new IndexOutOfRangeException("Row and column must be within the bounds of the chessboard.");
+
+                _board[row, col] = value;
+            }
         }
+
     }
 
 }

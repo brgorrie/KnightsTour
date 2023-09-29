@@ -14,8 +14,16 @@
 
 namespace KnightsTour.Services
 {
+    /// <summary>
+    /// Represents a service that provides output operations to the console.
+    /// Implements the <see cref="IOutputService"/> interface.
+    /// </summary>
     public class ConsoleOutputService : IOutputService
     {
+        /// <summary>
+        /// Writes the specified message to the console.
+        /// </summary>
+        /// <param name="message">The message to be written to the console.</param>
         public void Write(string message) => Console.WriteLine(message);
     }
 

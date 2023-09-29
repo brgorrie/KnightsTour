@@ -14,9 +14,17 @@
 
 namespace KnightsTour.Services
 {
+    /// <summary>
+    /// Defines a contract for services that handle output operations, providing a mechanism
+    /// to output messages, typically to the user or another output medium.
+    /// </summary>
     public interface IOutputService
     {
-        public void Write(string message);
+        /// <summary>
+        /// Writes the specified message to the output medium handled by the implementing class.
+        /// </summary>
+        /// <param name="message">The message to be written.</param>
+        void Write(string message);
     }
 
 }

@@ -16,61 +16,80 @@ using KnightsTour.Models;
 
 namespace KnightsTour.Utilities
 {
+    /// <summary>
+    /// Implements the <see cref="ITourSolver"/> interface to provide a simple solver for the Knight's Tour problem.
+    /// This solver iteratively attempts all possible moves from each position on the board until it either finds a solution or exhausts all possibilities.
+    /// </summary>
     public class SimpleTourSolver : ITourSolver
     {
-        private static readonly int[] RowMoves = { 2, 1, -1, -2, -2, -1, 1, 2 };
-        private static readonly int[] ColMoves = { 1, 2, 2, 1, -1, -2, -2, -1 };
+        /// <summary>
+        /// Defines the possible moves of a knight on a chessboard.
+        /// </summary>
+        private static readonly (int, int)[] s_moves = { (2, 1), (1, 2), (-1, 2), (-2, 1), (-2, -1), (-1, -2), (1, -2), (2, -1) };
 
+        /// <summary>
+        /// Solves the Knight's Tour problem on the given chessboard and calculates the number of possible tours.
+        /// </summary>
+        /// <param name="board">The chessboard on which to solve the Knight's Tour problem.</param>
+        /// <param name="unique">Indicates whether to count only unique solutions, ignoring rotations and reflections.</param>
+        /// <returns>The number of possible tours on the given chessboard.</returns>
         public int Solve(IChessBoard board, bool unique)
         {
-
             var count = 0;
             for (var row = 0; row < board.N; row++)
             {
                 for (var col = 0; col < board.N; col++)
                 {
-                    // Mark the starting point
-                    board[row, col] = 1;
-
-                    // Start the tour from this point
-                    count += Solve(board, row, col, 1);
-
-                    // Clear the starting point
-                    board[row, col] = 0;
+                    board[row, col] = 1;  // Mark the starting point of the knight.
+                    count += Solve(board, row, col, 1);  // Start the tour from this point and add to count.
+                    board[row, col] = 0;  // Clear the starting point after attempting all possibilities.
                 }
             }
-
-            // If unique solutions are required, consider dividing by 8 to account for rotations and reflections
+            // Adjust the count if unique solutions are requested to account for rotations and reflections.
             return unique ? count / 8 : count;
         }
 
-        private int Solve(IChessBoard board, int row, int col, int numMoves)
+        /// <summary>
+        /// Attempts to solve the Knight's Tour problem recursively from the given position.
+        /// </summary>
+        /// <param name="board">The chessboard.</param>
+        /// <param name="row">The current row position of the knight.</param>
+        /// <param name="col">The current column position of the knight.</param>
+        /// <param name="numMoves">The number of moves made so far.</param>
+        /// <returns>The number of solutions found from this position.</returns>
+        private static int Solve(IChessBoard board, int row, int col, int numMoves)
         {
-            if (numMoves == board.N * board.N)
-            {
-                return 1;
-            }
+            if (numMoves == board.N * board.N) return 1;  // A tour is completed.
 
             var count = 0;
-            for (var i = 0; i < 8; i++)
+            for (var i = 0; i < 8; i++)  // Attempt each possible knight move.
             {
-                var newRow = row + RowMoves[i];
-                var newCol = col + ColMoves[i];
+                var (newRow, newCol) = (row + s_moves[i].Item1, col + s_moves[i].Item2);
 
-                if (IsValidMove(board, newRow, newCol))
+                if (!IsValidMove(board, newRow, newCol))
                 {
-                    board[newRow, newCol] = numMoves + 1;
-                    count += Solve(board, newRow, newCol, numMoves + 1);
-                    board[newRow, newCol] = 0; // backtrack
+                    continue;
                 }
+
+                board[newRow, newCol] = numMoves + 1;  // Make a move.
+                count += Solve(board, newRow, newCol, numMoves + 1);  // Recur with the new position.
+                board[newRow, newCol] = 0;  // Backtrack after attempting all possibilities from the new position.
             }
             return count;
         }
 
-        private bool IsValidMove(IChessBoard board, int row, int col)
+        /// <summary>
+        /// Checks if the proposed move is valid - within the bounds of the board and onto an unvisited square.
+        /// </summary>
+        /// <param name="board">The chessboard.</param>
+        /// <param name="row">The proposed row position of the knight.</param>
+        /// <param name="col">The proposed column position of the knight.</param>
+        /// <returns>True if the move is valid; false otherwise.</returns>
+        private static bool IsValidMove(IChessBoard board, int row, int col)
         {
             return row >= 0 && row < board.N && col >= 0 && col < board.N && board[row, col] == 0;
         }
+
     }
 
 }

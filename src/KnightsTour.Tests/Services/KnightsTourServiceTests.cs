@@ -30,8 +30,8 @@ namespace KnightsTour.Tests.Services
             var mockBoard = new Mock<IChessBoard>();
             var service = new KnightsTourService(mockSolver.Object);
 
-            bool unique = true;
-            int expectedCount = 123;
+            var unique = true;
+            var expectedCount = 123;
 
             // Setup mockSolver to return a specific count.
             mockSolver.Setup(solver => solver.Solve(mockBoard.Object, unique))
@@ -52,7 +52,7 @@ namespace KnightsTour.Tests.Services
             var mockBoard = new Mock<IChessBoard>();
             var service = new KnightsTourService(mockSolver.Object);
 
-            bool unique = true;
+            var unique = true;
 
             // Act
             var _ = service.CountTours(mockBoard.Object, unique);

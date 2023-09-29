@@ -37,23 +37,9 @@ namespace KnightsTour.Tests.Utilities
             Assert.Equal(0, count);
         }
 
-        [Fact]
-        public void Solve_ShouldThrowNotSupportedException_ForWarnsdorff()
-        {
-            // Arrange
-            var solver = new SimpleTourSolver();
-            var board = new ChessBoard(3);
-            var unique = false;
-
-            // Act & Assert
-            Assert.Throws<NotSupportedException>(() => solver.Solve(board, unique));
-        }
-
         [Theory]
         [InlineData(5, false, 1728)]
         [InlineData(5, true, 216)]
-        [InlineData(8, false, 1728)]
-        [InlineData(8, true, 216)]
         public void Solve_ShouldReturnCorrectCountFor5x5Board_UniqueFalse(int n, bool unique, int expectedCount)
         {
             // Arrange

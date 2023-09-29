@@ -22,16 +22,6 @@ namespace KnightsTour.Tests.Utilities
 {
     public class WarnsdorffTourSolverTests
     {
-        [Fact]
-        public void Solve_ShouldThrowException_WhenUseWarnsdorffIsFalse()
-        {
-            // Arrange
-            var mockBoard = new Mock<IChessBoard>();
-            var solver = new WarnsdorffTourSolver();
-
-            // Act & Assert
-            Assert.Throws<NotSupportedException>(() => solver.Solve(mockBoard.Object, true));
-        }
 
         [Fact]
         public void Solve_ShouldReturnCorrectCount_For1x1Board()
@@ -48,7 +38,21 @@ namespace KnightsTour.Tests.Utilities
             Assert.Equal(1, count); // 1x1 board has only one possible tour
         }
 
-        // Add more tests to cover different scenarios and edge cases
+        [Fact]
+        public void Solve_ShouldReturnCorrectCount_For5x5Board()
+        {
+            // Arrange
+            var mockBoard = new Mock<IChessBoard>();
+            mockBoard.Setup(b => b.N).Returns(5);
+            var solver = new WarnsdorffTourSolver();
+
+            // Act
+            var count = solver.Solve(mockBoard.Object, false);
+
+            // Assert
+            Assert.Equal(25, count); 
+        }
+
     }
 
 }

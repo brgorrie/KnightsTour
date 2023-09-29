@@ -14,7 +14,30 @@
 
 namespace KnightsTour;
 
+/// <summary>
+/// Defines a contract for a class that runs the Knight's Tour algorithm.
+/// The Knight's Tour is a sequence of moves of a knight on a chessboard 
+/// such that the knight visits every square only once.
+/// </summary>
 public interface IKnightsTourRunner
 {
+
+    /// <summary>
+    /// Runs the Knight's Tour algorithm and returns the number of tours found.
+    /// </summary>
+    /// <param name="n">
+    /// The size of the chessboard. A standard chessboard would have n = 8, 
+    /// representing an 8x8 board.
+    /// </param>
+    /// <param name="shouldFindUniqueTours">
+    /// A boolean parameter indicating whether to find only unique tours.
+    /// When set to true, the algorithm will consider rotations and reflections
+    /// of a tour as the same tour and will not count them separately.
+    /// </param>
+    /// <returns>
+    /// The number of tours found. If <paramref name="shouldFindUniqueTours"/> is true,
+    /// this represents the number of unique tours found.
+    /// </returns>
     int Run(int n, bool shouldFindUniqueTours);
+
 }

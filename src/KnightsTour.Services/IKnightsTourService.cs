@@ -16,8 +16,20 @@ using KnightsTour.Models;
 
 namespace KnightsTour.Services
 {
+    /// <summary>
+    /// Defines a contract for a service that solves the Knight's Tour problem,
+    /// providing the functionality to count the number of possible tours on a chessboard.
+    /// </summary>
     public interface IKnightsTourService
     {
+        /// <summary>
+        /// Counts the number of tours possible on the given chessboard, 
+        /// considering whether to count only unique solutions or not.
+        /// </summary>
+        /// <param name="board">The chessboard on which to count the tours.</param>
+        /// <param name="unique">If true, only unique solutions are counted. 
+        /// If false, all solutions including reflections and rotations are counted.</param>
+        /// <returns>The number of possible tours on the given chessboard.</returns>
         int CountTours(IChessBoard board, bool unique);
     }
 

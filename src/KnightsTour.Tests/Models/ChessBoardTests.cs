@@ -23,7 +23,7 @@ namespace KnightsTour.Tests.Models
         public void Constructor_ShouldSetNProperty()
         {
             // Arrange
-            int n = 8;
+            var n = 8;
 
             // Act
             var chessBoard = new ChessBoard(n);
