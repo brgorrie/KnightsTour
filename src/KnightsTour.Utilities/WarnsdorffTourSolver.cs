@@ -69,7 +69,7 @@ namespace KnightsTour.Utilities
             for (var i = 0; i < 8; i++)
             {
                 var (newRow, newCol) = (row + s_moves[i].Item1, col + s_moves[i].Item2);
-                if (IsValidMove(board, newRow, newCol))
+                if (board.IsValidMove(newRow, newCol))
                     neighborDegrees.Add((newRow, newCol, GetDegree(board, newRow, newCol)));
             }
 
@@ -97,21 +97,9 @@ namespace KnightsTour.Utilities
             for (var i = 0; i < 8; i++)
             {
                 var (newRow, newCol) = (row + s_moves[i].Item1, col + s_moves[i].Item2);
-                if (IsValidMove(board, newRow, newCol)) degree++;
+                if (board.IsValidMove(newRow, newCol)) degree++;
             }
             return degree;
-        }
-
-        /// <summary>
-        /// Checks if the proposed move is valid - within the bounds of the board and onto an unvisited square.
-        /// </summary>
-        /// <param name="board">The chessboard.</param>
-        /// <param name="row">The proposed row position of the knight.</param>
-        /// <param name="col">The proposed column position of the knight.</param>
-        /// <returns>True if the move is valid; false otherwise.</returns>
-        private static bool IsValidMove(IChessBoard board, int row, int col)
-        {
-            return row >= 0 && row < board.N && col >= 0 && col < board.N && board[row, col] == 0;
         }
 
     }

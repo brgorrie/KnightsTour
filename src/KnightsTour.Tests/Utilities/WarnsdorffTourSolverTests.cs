@@ -42,12 +42,11 @@ namespace KnightsTour.Tests.Utilities
         public void Solve_ShouldReturnCorrectCount_For5x5Board()
         {
             // Arrange
-            var mockBoard = new Mock<IChessBoard>();
-            mockBoard.Setup(b => b.N).Returns(5);
+            var board = new ChessBoard(5);
             var solver = new WarnsdorffTourSolver();
 
             // Act
-            var count = solver.Solve(mockBoard.Object, false);
+            var count = solver.Solve(board, false);
 
             // Assert
             Assert.Equal(25, count); 

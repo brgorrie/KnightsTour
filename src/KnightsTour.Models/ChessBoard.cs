@@ -67,6 +67,19 @@ namespace KnightsTour.Models
             }
         }
 
+        /// <summary>
+        /// Checks if the proposed move is valid - within the bounds of the board and onto an unvisited square.
+        /// </summary>
+        /// <param name="board">The chessboard.</param>
+        /// <param name="row">The proposed row position of the knight.</param>
+        /// <param name="col">The proposed column position of the knight.</param>
+        /// <returns>True if the move is valid; false otherwise.</returns>
+        public bool IsValidMove(int row, int col)
+        {
+            return row >= 0 && row < this.N && col >= 0 && col < this.N && this[row, col] == 0;
+        }
+
+
     }
 
 }

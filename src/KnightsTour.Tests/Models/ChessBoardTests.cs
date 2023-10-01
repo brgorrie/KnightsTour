@@ -32,6 +32,15 @@ namespace KnightsTour.Tests.Models
             Assert.Equal(n, chessBoard.N);
         }
 
+        [Theory]
+        [InlineData(0)]
+        [InlineData(-1)]
+        public void Constructor_ShouldThrowArgumentOutOfRangeException_ForInvalidSize(int n)
+        {
+            // Act & Assert
+            Assert.Throws<ArgumentOutOfRangeException>(() => new ChessBoard(n));
+        }
+
         [Fact]
         public void Indexer_ShouldGetAndSetValue()
         {
@@ -46,17 +55,70 @@ namespace KnightsTour.Tests.Models
         }
 
         [Theory]
-        [InlineData(-1, 4)]
-        [InlineData(4, -1)]
-        [InlineData(8, 4)]
-        [InlineData(4, 8)]
-        public void Indexer_ShouldThrowIndexOutOfRangeException_ForInvalidIndex(int row, int col)
+        [InlineData(8, 4, -1, 4)]
+        [InlineData(8, 4, 4, -1)]
+        [InlineData(8, 4, 8, 4)]
+        [InlineData(8, 4, 4, 8)]
+        [InlineData(5, 2, 5, 2)]
+        [InlineData(5, 2, 2, 5)]
+        public void Indexer_ShouldThrowIndexOutOfRangeException_ForInvalidIndex(int n, int value, int row, int col)
+        {
+            // Arrange
+            var chessBoard = new ChessBoard(n);
+
+            // Act & Assert
+            Assert.Throws<IndexOutOfRangeException>(() => { chessBoard[row, col] = value; });
+            Assert.Throws<IndexOutOfRangeException>(() => { var _ = chessBoard[row, col]; });
+        }
+
+        [Theory]
+        [InlineData(0, 0)]
+        [InlineData(3, 4)]
+        [InlineData(7, 7)]
+        public void IsValidMove_ShouldReturnTrue_ForValidMove(int row, int col)
         {
             // Arrange
             var chessBoard = new ChessBoard(8);
 
-            // Act & Assert
-            Assert.Throws<IndexOutOfRangeException>(() => { var _ = chessBoard[row, col]; });
+            // Act
+            var isValid = chessBoard.IsValidMove(row, col);
+
+            // Assert
+            Assert.True(isValid);
+        }
+
+        [Theory]
+        [InlineData(0, 0)]
+        [InlineData(3, 4)]
+        [InlineData(7, 7)]
+        public void IsValidMove_ShouldReturnFalse_ForVisitedSquare(int row, int col)
+        {
+            // Arrange
+            var chessBoard = new ChessBoard(8);
+            chessBoard[row, col] = 1; // Mark the square as visited
+
+            // Act
+            var isValid = chessBoard.IsValidMove(row, col);
+
+            // Assert
+            Assert.False(isValid);
+        }
+
+        [Theory]
+        [InlineData(-1, 4)]
+        [InlineData(4, -1)]
+        [InlineData(8, 4)]
+        [InlineData(4, 8)]
+        public void IsValidMove_ShouldReturnFalse_ForInvalidMove(int row, int col)
+        {
+            // Arrange
+            var chessBoard = new ChessBoard(8);
+
+            // Act
+            var isValid = chessBoard.IsValidMove(row, col);
+
+            // Assert
+            Assert.False(isValid);
         }
     }
 

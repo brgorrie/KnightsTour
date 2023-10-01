@@ -33,6 +33,14 @@ namespace KnightsTour.Models
         /// <returns>The value in the chessboard cell at the specified row and column.</returns>
         int this[int row, int col] { get; set; }
 
+        /// <summary>
+        /// Checks if the proposed move is valid - within the bounds of the board and onto an unvisited square.
+        /// </summary>
+        /// <param name="row">The proposed row position of the knight.</param>
+        /// <param name="col">The proposed column position of the knight.</param>
+        /// <returns>True if the move is valid; false otherwise.</returns>
+        bool IsValidMove(int row, int col);
+
     }
 
 }

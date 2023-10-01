@@ -57,7 +57,7 @@ namespace KnightsTour.Utilities
         /// <param name="col">The current column position of the knight.</param>
         /// <param name="numMoves">The number of moves made so far.</param>
         /// <returns>The number of solutions found from this position.</returns>
-        private static int Solve(IChessBoard board, int row, int col, int numMoves)
+        public int Solve(IChessBoard board, int row, int col, int numMoves)
         {
             if (numMoves == board.N * board.N) return 1;  // A tour is completed.
 
@@ -66,7 +66,7 @@ namespace KnightsTour.Utilities
             {
                 var (newRow, newCol) = (row + s_moves[i].Item1, col + s_moves[i].Item2);
 
-                if (!IsValidMove(board, newRow, newCol))
+                if (!board.IsValidMove(newRow, newCol))
                 {
                     continue;
                 }
@@ -76,18 +76,6 @@ namespace KnightsTour.Utilities
                 board[newRow, newCol] = 0;  // Backtrack after attempting all possibilities from the new position.
             }
             return count;
-        }
-
-        /// <summary>
-        /// Checks if the proposed move is valid - within the bounds of the board and onto an unvisited square.
-        /// </summary>
-        /// <param name="board">The chessboard.</param>
-        /// <param name="row">The proposed row position of the knight.</param>
-        /// <param name="col">The proposed column position of the knight.</param>
-        /// <returns>True if the move is valid; false otherwise.</returns>
-        private static bool IsValidMove(IChessBoard board, int row, int col)
-        {
-            return row >= 0 && row < board.N && col >= 0 && col < board.N && board[row, col] == 0;
         }
 
     }
