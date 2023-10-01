@@ -30,15 +30,14 @@ namespace KnightsTour.Tests.Services
             var mockBoard = new Mock<IChessBoard>();
             var service = new KnightsTourService(mockSolver.Object);
 
-            var unique = true;
             var expectedCount = 123;
 
             // Setup mockSolver to return a specific count.
-            mockSolver.Setup(solver => solver.Solve(mockBoard.Object, unique))
+            mockSolver.Setup(solver => solver.Solve(mockBoard.Object))
                 .Returns(expectedCount);
 
             // Act
-            var actualCount = service.CountTours(mockBoard.Object, unique);
+            var actualCount = service.CountTours(mockBoard.Object);
 
             // Assert
             Assert.Equal(expectedCount, actualCount);
@@ -51,14 +50,12 @@ namespace KnightsTour.Tests.Services
             var mockSolver = new Mock<ITourSolver>();
             var mockBoard = new Mock<IChessBoard>();
             var service = new KnightsTourService(mockSolver.Object);
-
-            var unique = true;
-
+            
             // Act
-            var _ = service.CountTours(mockBoard.Object, unique);
+            var _ = service.CountTours(mockBoard.Object);
 
             // Assert
-            mockSolver.Verify(solver => solver.Solve(mockBoard.Object, unique), Times.Once);
+            mockSolver.Verify(solver => solver.Solve(mockBoard.Object), Times.Once);
         }
     }
 

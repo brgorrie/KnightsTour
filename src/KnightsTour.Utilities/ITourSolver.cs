@@ -27,10 +27,9 @@ namespace KnightsTour.Utilities
         /// whether to count only unique solutions or not.
         /// </summary>
         /// <param name="board">The chessboard on which to solve the Knight's Tour problem.</param>
-        /// <param name="unique">If true, the method should count only unique solutions, ignoring rotations and reflections.
         /// If false, all solutions including reflections and rotations should be counted.</param>
         /// <returns>The number of possible tours on the given chessboard.</returns>
-        int Solve(IChessBoard board, bool unique);
+        int Solve(IChessBoard board);
     }
 
 }

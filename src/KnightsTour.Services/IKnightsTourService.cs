@@ -27,10 +27,9 @@ namespace KnightsTour.Services
         /// considering whether to count only unique solutions or not.
         /// </summary>
         /// <param name="board">The chessboard on which to count the tours.</param>
-        /// <param name="unique">If true, only unique solutions are counted. 
         /// If false, all solutions including reflections and rotations are counted.</param>
         /// <returns>The number of possible tours on the given chessboard.</returns>
-        int CountTours(IChessBoard board, bool unique);
+        int CountTours(IChessBoard board);
     }
 
 }

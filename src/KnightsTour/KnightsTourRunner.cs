@@ -58,17 +58,13 @@ namespace KnightsTour
         /// <param name="n">
         /// The size of the chessboard. For a standard chessboard, n = 8.
         /// </param>
-        /// <param name="shouldFindUniqueTours">
-        /// If true, the runner will consider rotations and reflections as the same tour and
-        /// will not count them separately.
-        /// </param>
         /// <returns>
         /// The number of tours found. If <paramref name="shouldFindUniqueTours"/> is true,
         /// this represents the number of unique tours found.
         /// </returns>
-        public int Run(int n, bool shouldFindUniqueTours)
+        public int Run(int n)
         {
-            var count = _service.CountTours(_board, shouldFindUniqueTours);
+            var count = _service.CountTours(_board);
             _outputService.Write($"Number of tours: {count}");
             return count;
         }

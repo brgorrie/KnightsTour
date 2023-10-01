@@ -32,15 +32,6 @@ namespace KnightsTour
         public int BoardSize { get; set; }
 
         /// <summary>
-        /// Gets or sets a value indicating whether to consider unique solutions only. This is a required parameter.
-        /// </summary>
-        /// <value>
-        /// True if only unique solutions should be considered, false otherwise.
-        /// </value>
-        [Option('u', "unique", Required = true, HelpText = "Consider unique solutions only.")]
-        public bool Unique { get; set; }
-
-        /// <summary>
         /// Gets or sets a value indicating whether to use Warnsdorff’s algorithm. This is a required parameter.
         /// </summary>
         /// <value>

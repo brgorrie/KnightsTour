@@ -47,9 +47,9 @@ namespace KnightsTour.Services
         /// <param name="unique">If true, the method counts only unique solutions.
         /// If false, all solutions including reflections and rotations are counted.</param>
         /// <returns>The number of possible tours on the given chessboard.</returns>
-        public int CountTours(IChessBoard board, bool unique)
+        public int CountTours(IChessBoard board)
         {
-            var count = _solver.Solve(board, unique);
+            var count = _solver.Solve(board);
             return count;
         }
 

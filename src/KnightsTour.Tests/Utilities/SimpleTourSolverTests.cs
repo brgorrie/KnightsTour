@@ -27,10 +27,9 @@ namespace KnightsTour.Tests.Utilities
             // Arrange
             var solver = new SimpleTourSolver();
             var board = new ChessBoard(3);
-            var unique = false;
 
             // Act
-            var count = solver.Solve(board, unique);
+            var count = solver.Solve(board);
 
             // Assert
             // There are no possible complete tours on a 3x3 board.
@@ -38,16 +37,16 @@ namespace KnightsTour.Tests.Utilities
         }
 
         [Theory]
-        [InlineData(5, false, 1728)]
-        [InlineData(5, true, 216)]
-        public void Solve_ShouldReturnCorrectCountFor5x5Board_UniqueFalse(int n, bool unique, int expectedCount)
+        [InlineData(5, 1728)]
+        [InlineData(1, 1)]
+        public void Solve_ShouldReturnCorrectCountFor5x5Board_UniqueFalse(int n, int expectedCount)
         {
             // Arrange
             var solver = new SimpleTourSolver();
             var board = new ChessBoard(n);
 
             // Act
-            var count = solver.Solve(board, unique);
+            var count = solver.Solve(board);
 
             // Assert
             Assert.Equal(expectedCount, count);

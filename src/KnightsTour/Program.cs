@@ -71,7 +71,7 @@ public class Program
         {
             // Resolve the runner and start running with the provided options.
             var runner = scope.Resolve<IKnightsTourRunner>();
-            runner.Run(options.BoardSize, options.Unique);
+            runner.Run(options.BoardSize);
         }
 
     }

@@ -31,9 +31,8 @@ namespace KnightsTour.Utilities
         /// Solves the Knight's Tour problem on the given chessboard using Warnsdorff's heuristic and calculates the number of possible tours.
         /// </summary>
         /// <param name="board">The chessboard on which to solve the Knight's Tour problem.</param>
-        /// <param name="unique">Indicates whether to count only unique solutions, ignoring rotations and reflections.</param>
         /// <returns>The number of possible tours on the given chessboard.</returns>
-        public int Solve(IChessBoard board, bool unique)
+        public int Solve(IChessBoard board)
         {
             var count = 0;
             for (var row = 0; row < board.N; row++)
@@ -48,7 +47,7 @@ namespace KnightsTour.Utilities
             }
 
             // Adjust the count if unique solutions are requested to account for rotations and reflections.
-            return unique ? count / 8 : count;
+            return count;
         }
 
         /// <summary>

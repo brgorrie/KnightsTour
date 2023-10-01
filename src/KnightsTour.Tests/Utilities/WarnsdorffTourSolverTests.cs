@@ -32,7 +32,7 @@ namespace KnightsTour.Tests.Utilities
             var solver = new WarnsdorffTourSolver();
 
             // Act
-            var count = solver.Solve(mockBoard.Object, false);
+            var count = solver.Solve(mockBoard.Object);
 
             // Assert
             Assert.Equal(1, count); // 1x1 board has only one possible tour
@@ -46,7 +46,7 @@ namespace KnightsTour.Tests.Utilities
             var solver = new WarnsdorffTourSolver();
 
             // Act
-            var count = solver.Solve(board, false);
+            var count = solver.Solve(board);
 
             // Assert
             Assert.Equal(25, count); 
